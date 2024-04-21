@@ -33,6 +33,11 @@ const cardSlice = createSlice({
       state.equipment = action.payload.equipment;
       state.vehicleType = action.payload.vehicleType;
     },
+    setDeleteLiked: (state, action) => {
+      state.liked = state.liked.filter(
+        (item) => item._id !== action.payload._id
+      );
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getVehicle.fulfilled, (state, action) => {
@@ -42,5 +47,6 @@ const cardSlice = createSlice({
 });
 
 export default cardSlice.reducer;
-export const { setCurrentPage, setAllFilters, setLiked } = cardSlice.actions;
+export const { setCurrentPage, setAllFilters, setLiked, setDeleteLiked } =
+  cardSlice.actions;
 export const cardReducer = cardSlice.reducer;

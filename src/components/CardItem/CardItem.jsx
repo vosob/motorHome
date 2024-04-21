@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BsPeople } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { CiHeart } from 'react-icons/ci';
@@ -12,7 +11,7 @@ import { TbToolsKitchen2 } from 'react-icons/tb';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectLiked } from '../../redux/vehicleCard/cardSelectors';
-import { setLiked } from '../../redux/vehicleCard/cardSlice';
+import { setDeleteLiked, setLiked } from '../../redux/vehicleCard/cardSlice';
 import { DefButton } from '../DefButton/DefButton';
 import { InfoMark } from '../InfoMark/InfoMark';
 
@@ -32,13 +31,13 @@ export const CardItem = ({ data }) => {
   const dispatch = useDispatch();
   const select = useSelector(selectLiked);
 
-  const [like, setLike] = useState(false);
-
   const onClick = (e) => {
     e.preventDefault();
-    setLike(!like);
-    if (!select.some((i) => i.id === data.id)) {
+
+    if (!select.some((i) => i._id === data._id)) {
       dispatch(setLiked(data));
+    } else {
+      dispatch(setDeleteLiked(data));
     }
   };
 
@@ -52,12 +51,12 @@ export const CardItem = ({ data }) => {
             <SvgContainer>
               <p>{`€${data.price}`}</p>
               <div onClick={onClick} style={{ position: 'relative' }}>
-                {!like ? (
-                  <SvgHeart>
-                    <CiHeart size={24} />
-                  </SvgHeart>
-                ) : (
+                {select.some((item) => {
+                  return item._id === data._id;
+                }) ? (
                   <FaHeart size={24} color="red" />
+                ) : (
+                  <CiHeart size={24} />
                 )}
               </div>
             </SvgContainer>
