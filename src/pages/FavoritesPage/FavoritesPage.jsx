@@ -21,7 +21,6 @@ export const FavoritesPage = () => {
     dispatch(setCurrentPage(currentPage + displayedItems));
   };
 
-  console.log(select);
   return (
     <>
       <CatalogList

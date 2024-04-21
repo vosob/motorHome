@@ -25,8 +25,6 @@ export const Location = ({ currentCountry, setCurrentCountry }) => {
     setCurrentCountry(newValue.value);
   };
 
-  // console.log(currentCountry);
-
   return (
     <>
       <Text>Location</Text>
