@@ -130,7 +130,7 @@ Error generating stack: `+o.message+`
   gap: 24px;
   flex-direction: row;
   border-radius: 20px;
-  border: 1px solid rgba(16, 24, 40, 0.2);
+  border: 1px solid rgba(16, 23, 40, 0.2);
   padding: 24px;
 `,vk=F.div`
   width: 100%;
