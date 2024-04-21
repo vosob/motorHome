@@ -1,8 +1,9 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { WelcomePage } from './pages/WelcomePage/WelcomePage';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
+import { Layout } from './components/Layout/Layout';
 import { CatalogPage } from './pages/CatalogPage/CatalogPage';
 import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage';
-import { Layout } from './components/Layout/Layout';
+import { WelcomePage } from './pages/WelcomePage/WelcomePage';
 
 function App() {
   return (
