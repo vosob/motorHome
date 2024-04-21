@@ -24,7 +24,6 @@ import {
   RatingContainer,
   RightContainer,
   SvgContainer,
-  SvgHeart,
 } from './CardItem.styled';
 
 export const CardItem = ({ data }) => {
