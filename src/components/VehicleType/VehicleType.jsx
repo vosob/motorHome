@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux';
+
+import { selectVehicleType } from '../../redux/vehicleCard/cardSelectors';
 import sprite from '../Icons/sprite.svg';
 
 import {
@@ -10,18 +13,19 @@ import {
   Text,
 } from './VehicleType.styled';
 
-export const VehicleType = ({ setRadio }) => {
+export const VehicleType = ({ setRadio, radio }) => {
+  const vehicleType = useSelector(selectVehicleType);
+
   const onClick = (e) => {
     const target = e.target.value;
     setRadio(target);
   };
-
   return (
     <>
       <Text>VehicleType</Text>
       <Divider />
       <FilterContainer>
-        <SvgContainer>
+        <SvgContainer $active={radio === 'panelTruck'}>
           <InputRadio
             onClick={onClick}
             type="radio"
@@ -33,7 +37,7 @@ export const VehicleType = ({ setRadio }) => {
           </Svg>
           <SvgText>Van</SvgText>
         </SvgContainer>
-        <SvgContainer>
+        <SvgContainer $active={radio === 'fullyIntegrated'}>
           <InputRadio
             onClick={onClick}
             type="radio"
@@ -45,7 +49,7 @@ export const VehicleType = ({ setRadio }) => {
           </Svg>
           <SvgText>Fully Integrated</SvgText>
         </SvgContainer>
-        <SvgContainer>
+        <SvgContainer $active={radio === 'alcove'}>
           <InputRadio
             onClick={onClick}
             type="radio"

@@ -51,6 +51,10 @@ export const EquipmentBtn = styled.label`
       ? 'border: 1px solid #E44848;'
       : 'border: 1px solid rgba(16, 24, 40, 0.2);'};
 
+  & > * {
+    ${(props) => (props.$check === false ? '' : 'color: #E44848;')};
+  }
+
   background-color: inherit;
   outline: none;
   height: 95px;

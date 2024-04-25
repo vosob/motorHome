@@ -1,12 +1,16 @@
 import { CiLocationOn } from 'react-icons/ci';
 import { useSelector } from 'react-redux';
 
-import { selectUniqueLocations } from '../../redux/vehicleCard/cardSelectors';
+import {
+  selectLocation,
+  selectUniqueLocations,
+} from '../../redux/vehicleCard/cardSelectors';
 
 import { Container, CustomSelect, SvgLocation, Text } from './Location.styled';
 
 export const Location = ({ currentCountry, setCurrentCountry }) => {
   const select = useSelector(selectUniqueLocations);
+  const selected = useSelector(selectLocation);
 
   const options = select.map((option) => {
     return {
@@ -25,6 +29,8 @@ export const Location = ({ currentCountry, setCurrentCountry }) => {
     setCurrentCountry(newValue.value);
   };
 
+  const currentLocation = options.map((option) => option.value);
+
   return (
     <>
       <Text>Location</Text>
@@ -37,7 +43,8 @@ export const Location = ({ currentCountry, setCurrentCountry }) => {
           onChange={onChange}
           value={getValue()}
           options={options}
-          placeholder="City"
+          // placeholder="City"
+          placeholder={currentLocation.includes(selected) ? selected : 'City'}
         />
       </Container>
     </>

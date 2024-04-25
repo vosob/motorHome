@@ -41,70 +41,68 @@ export const CardItem = ({ data }) => {
   };
 
   return (
-    <>
-      <Container>
-        <CardImg img={data.gallery[0]} />
-        <RightContainer>
-          <NameAndPriceContainer>
-            <ItemName>{data.name}</ItemName>
-            <SvgContainer>
-              <p>{`€${data.price}`}</p>
-              <div onClick={onClick} style={{ position: 'relative' }}>
-                {select.some((item) => {
-                  return item._id === data._id;
-                }) ? (
-                  <FaHeart size={24} color="red" />
-                ) : (
-                  <CiHeart size={24} />
-                )}
-              </div>
-            </SvgContainer>
-          </NameAndPriceContainer>
-          <RatingContainer>
-            <FaStar color="gold" />
-            <p>{data.rating}</p>
-            <CiLocationOn />
-            <p>{data.location}</p>
-          </RatingContainer>
-          <div style={{ width: '525px', marginBottom: '24px' }}>
-            <Description>{data.description}</Description>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              gap: '8px',
-              flexWrap: 'wrap',
-              marginBottom: '24px',
-            }}
-          >
-            <InfoMark
-              svg={<BsPeople size={20} />}
-              text={`${data.adults} adults`}
-            />
-            <InfoMark
-              svg={<TbAutomaticGearbox size={20} />}
-              text={`${data.transmission}`}
-            />
-            <InfoMark
-              svg={<MdOutlineLocalGasStation size={20} />}
-              text={`${data.engine}`}
-            />
-            <InfoMark
-              svg={<TbToolsKitchen2 size={20} />}
-              text={`${data.details.kitchen} kitchen`}
-            />
-            <InfoMark
-              svg={<IoBedOutline size={20} />}
-              text={`${data.details.beds} beds`}
-            />
-            <InfoMark
-              svg={<MdAir size={20} />}
-              text={`${data.details.airConditioner} AC`}
-            />
-          </div>
-          <DefButton text={'Show more'}>Show more</DefButton>
-        </RightContainer>
-      </Container>
-    </>
+    <Container>
+      <CardImg img={data.gallery[0]} />
+      <RightContainer>
+        <NameAndPriceContainer>
+          <ItemName>{data.name}</ItemName>
+          <SvgContainer>
+            <p>{`€${data.price}`}</p>
+            <div onClick={onClick} style={{ position: 'relative' }}>
+              {select.some((item) => {
+                return item._id === data._id;
+              }) ? (
+                <FaHeart size={24} color="red" />
+              ) : (
+                <CiHeart size={24} />
+              )}
+            </div>
+          </SvgContainer>
+        </NameAndPriceContainer>
+        <RatingContainer>
+          <FaStar color="gold" />
+          <p>{data.rating}</p>
+          <CiLocationOn />
+          <p>{data.location}</p>
+        </RatingContainer>
+        <div style={{ width: '525px', marginBottom: '24px' }}>
+          <Description>{data.description}</Description>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            gap: '8px',
+            flexWrap: 'wrap',
+            marginBottom: '24px',
+          }}
+        >
+          <InfoMark
+            svg={<BsPeople size={20} />}
+            text={`${data.adults} adults`}
+          />
+          <InfoMark
+            svg={<TbAutomaticGearbox size={20} />}
+            text={`${data.transmission}`}
+          />
+          <InfoMark
+            svg={<MdOutlineLocalGasStation size={20} />}
+            text={`${data.engine}`}
+          />
+          <InfoMark
+            svg={<TbToolsKitchen2 size={20} />}
+            text={`${data.details.kitchen} kitchen`}
+          />
+          <InfoMark
+            svg={<IoBedOutline size={20} />}
+            text={`${data.details.beds} beds`}
+          />
+          <InfoMark
+            svg={<MdAir size={20} />}
+            text={`${data.details.airConditioner} AC`}
+          />
+        </div>
+        <DefButton text={'Show more'}>Show more</DefButton>
+      </RightContainer>
+    </Container>
   );
 };

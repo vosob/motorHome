@@ -15,6 +15,7 @@ import {
 } from './Filters.styled';
 
 export const Filters = ({ setFilter, filter }) => {
+  // const selected = useSelector(selectEquipment);
   const onClick = (e) => {
     const name = e.target.name;
     const checked = e.target.checked;

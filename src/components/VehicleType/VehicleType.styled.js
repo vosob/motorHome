@@ -36,8 +36,6 @@ export const FilterBtn = styled.button`
   padding-top: 17px;
   padding-bottom: 17px;
 
-  border: 1px solid rgba(16, 24, 40, 0.2);
-
   border-radius: 10px;
   background-color: inherit;
   outline: none;
@@ -69,7 +67,17 @@ export const SvgContainer = styled.label`
   padding-top: 17px;
   padding-bottom: 17px;
 
-  border: 1px solid rgba(16, 24, 40, 0.2);
+  ${(props) =>
+    props.$active === !false
+      ? 'border: 1px solid #E44848;'
+      : 'border: 1px solid rgba(16, 24, 40, 0.2);'};
+
+  & > * {
+    ${(props) => (props.$active === false ? '' : 'color: #E44848;')};
+    ${(props) =>
+      props.$active === false ? 'rgba(16, 24, 40, 0.2);' : 'fill: #E44848;'};
+  }
+
   border-radius: 10px;
   background-color: inherit;
   outline: none;
@@ -80,8 +88,9 @@ export const SvgContainer = styled.label`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const InputRadio = styled.input`
-  /* visibility: hidden; */
+  visibility: hidden;
 `;

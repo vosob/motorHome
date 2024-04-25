@@ -5,6 +5,8 @@ export const CatalogContainer = styled.div`
   gap: 64px;
 `;
 
-export const LeftContainer = styled.form``;
+export const LeftContainer = styled.form`
+  max-width: 360px;
+`;
 
 export const RightContainer = styled.div``;

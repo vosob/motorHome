@@ -33,6 +33,17 @@ const cardSlice = createSlice({
       state.equipment = action.payload.equipment;
       state.vehicleType = action.payload.vehicleType;
     },
+    setResetFilters: (state) => {
+      state.location = '';
+      state.equipment = {
+        AC: false,
+        Automatic: false,
+        Kitchen: false,
+        TV: false,
+        ShowerWC: false,
+      };
+      state.vehicleType = '';
+    },
     setDeleteLiked: (state, action) => {
       state.liked = state.liked.filter(
         (item) => item._id !== action.payload._id
@@ -47,6 +58,11 @@ const cardSlice = createSlice({
 });
 
 export default cardSlice.reducer;
-export const { setCurrentPage, setAllFilters, setLiked, setDeleteLiked } =
-  cardSlice.actions;
+export const {
+  setCurrentPage,
+  setAllFilters,
+  setLiked,
+  setDeleteLiked,
+  setResetFilters,
+} = cardSlice.actions;
 export const cardReducer = cardSlice.reducer;

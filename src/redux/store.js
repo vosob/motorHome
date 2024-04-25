@@ -17,6 +17,7 @@ import cardReducer from '../redux/vehicleCard/cardSlice';
 const persistConfig = {
   key: 'rent',
   storage,
+  blacklist: ['currentPage'],
 };
 
 const persistedReducer = persistReducer(persistConfig, cardReducer);
