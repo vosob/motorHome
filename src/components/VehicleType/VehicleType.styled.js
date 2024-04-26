@@ -83,7 +83,7 @@ export const SvgContainer = styled.label`
   outline: none;
 
   height: 95px;
-  width: 114px;
+  max-width: 114px;
   display: flex;
   flex-direction: column;
   justify-content: center;

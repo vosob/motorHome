@@ -42,7 +42,7 @@ export const CardItem = ({ data }) => {
 
   return (
     <Container>
-      <CardImg img={data.gallery[0]} />
+      <CardImg $img={data.gallery[0]} />
       <RightContainer>
         <NameAndPriceContainer>
           <ItemName>{data.name}</ItemName>

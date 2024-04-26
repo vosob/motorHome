@@ -4,7 +4,7 @@ export const CardImg = styled.div`
   min-width: 290px;
   min-height: 310px;
   border-radius: 10px;
-  background-image: url(${(props) => props.img});
+  background-image: url(${(props) => props.$img});
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
