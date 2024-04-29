@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 100%;
+`;
 
 export const MainTitle = styled.h1`
   font-family: Inter;
@@ -32,6 +34,7 @@ export const Title = styled.h2`
 
 export const List = styled.ul`
   display: flex;
+  gap: 16px;
   font-family: Inter;
   color: #475467;
   line-height: 24px;
@@ -52,6 +55,7 @@ export const ListItem = styled.li`
 
 export const ImgList = styled.ul`
   display: flex;
+  justify-content: center;
   gap: 16px;
   margin-bottom: 40px;
 `;
@@ -65,6 +69,9 @@ export const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  padding: 16px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 23, 40, 0.2);
 `;
 
 export const ImgText = styled.p`

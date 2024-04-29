@@ -31,18 +31,18 @@ export const WelcomePage = () => {
       <Title>Why hire a motorhome through MotorHome?</Title>
       <List>
         <CardContainer>
-          <ListItem>Choose the perfect motorhome for your travels;</ListItem>
+          <ListItem>Choose the perfect motorhome for your travels</ListItem>
           <LiaShuttleVanSolid size={80} color="#E44848" />
         </CardContainer>
         <CardContainer>
           <ListItem>
-            Get assistance in planning your route and discovering new places;
+            Get assistance in planning your route and discovering new places
           </ListItem>
           <TbRouteAltLeft size={80} color="#E44848" />
         </CardContainer>
         <CardContainer>
           <ListItem>
-            Enjoy the support of our team at every step of your journey;
+            Enjoy the support of our team at every step of your journey
           </ListItem>
           <MdOutlineSupportAgent size={80} color="#E44848" />
         </CardContainer>
@@ -54,26 +54,30 @@ export const WelcomePage = () => {
         </CardContainer>
       </List>
 
+      <Title>Start your unforgettable journey with MotorHome today!</Title>
+
       <ImgList>
-        <li style={{ position: 'relative' }}>
-          <ImgItem src="public/img-one.png" />
+        <li
+          style={{
+            position: 'relative',
+          }}
+        >
+          <ImgItem src="img-one.png" />
           <ImgText>Affordable Campervans</ImgText>
         </li>
         <li style={{ position: 'relative' }}>
-          <ImgItem src="public/img-two.jpg" />
+          <ImgItem src="img-two.jpg" />
           <ImgText>Take a Motorhome abroad</ImgText>
         </li>
         <li style={{ position: 'relative' }}>
-          <ImgItem src="public/img-third.jpg" />
+          <ImgItem src="img-third.jpg" />
           <ImgText>Glastonbury campervan hire</ImgText>
         </li>
         <li style={{ position: 'relative' }}>
-          <ImgItem src="public/img-fourth.jpg" />
+          <ImgItem src="img-fourth.jpg" />
           <ImgText>Dog-friendly motorhomes</ImgText>
         </li>
       </ImgList>
-
-      <Title>Start your unforgettable journey with MotorHome today!</Title>
     </Container>
   );
 };

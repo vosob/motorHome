@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BsPeople } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { CiHeart } from 'react-icons/ci';
@@ -14,6 +15,7 @@ import { selectLiked } from '../../redux/vehicleCard/cardSelectors';
 import { setDeleteLiked, setLiked } from '../../redux/vehicleCard/cardSlice';
 import { DefButton } from '../DefButton/DefButton';
 import { InfoMark } from '../InfoMark/InfoMark';
+import { ModalWindow } from '../ModalWindow/ModalWindow';
 
 import {
   CardImg,
@@ -29,6 +31,12 @@ import {
 export const CardItem = ({ data }) => {
   const dispatch = useDispatch();
   const select = useSelector(selectLiked);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  // console.log(modalIsOpen);
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   const onClick = (e) => {
     e.preventDefault();
@@ -40,6 +48,8 @@ export const CardItem = ({ data }) => {
     }
   };
 
+  console.log(data.gallery);
+
   return (
     <Container>
       <CardImg $img={data.gallery[0]} />
@@ -47,7 +57,7 @@ export const CardItem = ({ data }) => {
         <NameAndPriceContainer>
           <ItemName>{data.name}</ItemName>
           <SvgContainer>
-            <p>{`€${data.price}`}</p>
+            <p>{`€${data.price.toFixed(2)}`}</p>
             <div onClick={onClick} style={{ position: 'relative' }}>
               {select.some((item) => {
                 return item._id === data._id;
@@ -61,7 +71,9 @@ export const CardItem = ({ data }) => {
         </NameAndPriceContainer>
         <RatingContainer>
           <FaStar color="gold" />
-          <p>{data.rating}</p>
+          <p style={{ textDecorationLine: 'underline' }}>
+            {data.rating}({data.reviews.length} Reviews)
+          </p>
           <CiLocationOn />
           <p>{data.location}</p>
         </RatingContainer>
@@ -101,7 +113,15 @@ export const CardItem = ({ data }) => {
             text={`${data.details.airConditioner} AC`}
           />
         </div>
-        <DefButton text={'Show more'}>Show more</DefButton>
+        <DefButton action={openModal} text={'Show more'}>
+          Show more
+        </DefButton>
+        <ModalWindow
+          toggle={openModal}
+          state={modalIsOpen}
+          setState={setIsOpen}
+          data={data}
+        />
       </RightContainer>
     </Container>
   );

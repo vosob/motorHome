@@ -10,10 +10,10 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <React.StrictMode>
-      <BrowserRouter basename="/motorHome">
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
+    {/* <React.StrictMode> */}
+    <BrowserRouter basename="/motorHome/">
+      <App />
+    </BrowserRouter>
+    {/* </React.StrictMode> */}
   </Provider>
 );
